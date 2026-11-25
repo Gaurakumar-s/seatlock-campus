@@ -101,7 +101,7 @@ public class VerificationService {
         throw new ApiError(
             503,
             "EMAIL_UNAVAILABLE",
-            "Email could not be sent. Check the server's SMTP configuration and try again.");
+            "Email could not be sent. Check the server's email configuration and try again.");
       }
     } else {
       if (inbox.size() > 1000)

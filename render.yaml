@@ -1,0 +1,36 @@
+# Uses an external persistent PostgreSQL database (for example, Neon).
+# Enter private values in Render. Never put credentials in this file.
+services:
+  - type: web
+    name: seatlock-campus
+    runtime: docker
+    plan: free
+    region: oregon
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: BIND_ADDRESS
+        value: 0.0.0.0
+      - key: JAVA_TOOL_OPTIONS
+        value: -XX:MaxRAMPercentage=60.0 -XX:InitialRAMPercentage=10.0 -XX:+UseSerialGC
+      - key: DB_POOL_SIZE
+        value: "5"
+      - key: DB_MIN_IDLE
+        value: "0"
+      - key: DB_URL
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: MAIL_MODE
+        value: smtp
+      - key: MAIL_TRANSPORT
+        value: brevo
+      - key: MAIL_FROM
+        sync: false
+      - key: BREVO_API_KEY
+        sync: false

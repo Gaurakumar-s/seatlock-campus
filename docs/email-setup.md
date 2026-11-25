@@ -66,3 +66,10 @@ python3 scripts/smtp_smoke_test.py
 ```
 
 This script runs a temporary app and an actual loopback SMTP capture server, verifies an organizer and two students from captured messages, and checks both audience rules. It stops its processes and removes the temporary database. It sends no external mail and tests neither provider TLS/authentication nor external inbox delivery. Results are saved in `docs/smtp-test-result.json`.
+
+
+## HTTPS delivery on Render Free
+
+Render Free blocks outbound SMTP ports. Use `MAIL_MODE=smtp`, `MAIL_TRANSPORT=brevo`, `MAIL_FROM` (your verified Brevo sender) and `BREVO_API_KEY` instead. The API key is an environment secret; never commit it or include it in browser code. A failed API response returns an email error and does not verify the account. The test inbox stays disabled.
+
+See [deployment setup](deployment.md) for the database and hosting configuration. Brevo must approve the sender/account before real delivery can be tested.

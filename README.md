@@ -93,13 +93,17 @@ docker compose up --build
 
 Compose supplies PostgreSQL 16 and the application. Direct Java/shell launchers read environment variables; only Compose automatically reads `.env`.
 
+## Live hosting
+
+Use [the deployment guide](docs/deployment.md) for Render, persistent PostgreSQL on Neon and real verification emails through Brevo's HTTPS API. `render.yaml` includes the hosting configuration; enter database and email credentials only in Render's environment settings. Updating the same service keeps its URL.
+
 ## Tests
 
 ```sh
 mvn -f backend/pom.xml test
 ```
 
-The 57 integration tests cover registration races, waitlist order, QR admission, verification codes, college domains and organization access. They passed locally on H2 and PostgreSQL 16.
+The test suite covers registration races, waitlist order, QR admission, verification codes, college domains and organization access. Registration and organization tests run against H2 and PostgreSQL 16; delivery tests also verify the HTTPS email contract.
 
 Additional checks:
 
