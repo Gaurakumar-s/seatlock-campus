@@ -1,0 +1,16 @@
+**/node_modules/
+**/target/
+**/dist/
+**/data/
+**/*.tsbuildinfo
+**/.env
+.env
+*.log
+.DS_Store
+backend/src/main/resources/static/
+
+**/__pycache__/
+*.pyc
+
+# Local application preparation
+docs/submission-draft.md

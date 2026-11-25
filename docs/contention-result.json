@@ -1,0 +1,26 @@
+{
+  "experiment": "Last-place registration, FIFO waitlist promotion, idempotent QR check-in",
+  "run_at_utc": "2026-11-25T08:26:46Z",
+  "database": "PostgreSQL-16",
+  "verification": "Local test inbox; synthetic accounts only",
+  "students": 100,
+  "event_capacity": 1,
+  "initial_confirmed": 1,
+  "initial_waitlisted": 99,
+  "unexpected_errors": 0,
+  "registration_retries": 20,
+  "unique_registration_after_retries": 1,
+  "cancellations": 1,
+  "earliest_waiter_promoted": true,
+  "next_waiter_position": 1,
+  "qr_scan_requests": 20,
+  "new_checkins": 1,
+  "duplicate_scans": 19,
+  "cancelled_pass_rejected": true,
+  "registration_latency_ms": {
+    "p50": 101.17,
+    "p95": 143.16,
+    "max": 148.92
+  },
+  "limitations": "One localhost run, one app process and PostgreSQL database. Registration timings exclude account creation. Not production throughput or real student adoption. QR tokens submitted via API; camera hardware is not exercised."
+}

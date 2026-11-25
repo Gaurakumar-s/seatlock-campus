@@ -1,0 +1,12 @@
+{
+  "run_at_utc": "2026-11-25T08:25:24Z",
+  "transport": "Actual JavaMail SMTP connection to loopback capture server",
+  "messages_received": 3,
+  "organizer_verified": true,
+  "students_verified": 2,
+  "college_domain_rule_passed": true,
+  "open_event_rule_passed": true,
+  "unverified_registration_blocked": true,
+  "test_inbox_disabled_in_smtp_mode": true,
+  "limitations": "No external provider, TLS negotiation, spam filtering or real inbox delivery tested. TLS/auth disabled only for the loopback capture server."
+}
