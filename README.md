@@ -2,6 +2,8 @@
 
 A full-stack event registration app for colleges. Organizers create college workspaces and events; students verify their email, reserve a place and receive a QR pass. Full events use a first-in, first-out waitlist.
 
+**[Live demo](https://seatlock-campus.onrender.com)** · Hosted on Render with PostgreSQL on Neon and real verification emails through Brevo. The free service may take about a minute to wake after inactivity.
+
 ![SeatLock Campus](docs/discover.jpg)
 
 ## Features
@@ -61,7 +63,7 @@ Development mode sends no real email and must remain local. Email-domain verific
 
 Set `MAIL_MODE=smtp`, `MAIL_FROM`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_USERNAME` and `SMTP_PASSWORD` in the environment before starting the app. Authentication and required STARTTLS are enabled by default. The local test inbox is disabled in SMTP mode.
 
-See [email setup](docs/email-setup.md) for the full instructions. Keep credentials out of Git. Real external inbox delivery requires a configured SMTP provider.
+See [email setup](docs/email-setup.md) for the full instructions, including Brevo HTTPS delivery for hosts that block SMTP ports. Keep credentials out of Git.
 
 ### PostgreSQL
 
@@ -130,4 +132,4 @@ Registration, cancellation and check-in use database transactions and lock the e
 - [Verification results and limitations](docs/verification.md)
 - [Project write-up](docs/project-writeup.pdf)
 
-Planned improvements include college SSO, multiple verified domains, promotion emails, event editing, secure cookie sessions and broader rate limiting. The app currently supports one exact email domain per college workspace. External email delivery, physical camera hardware and Docker runtime still need environment-specific verification.
+Planned improvements include college SSO, multiple verified domains, promotion emails, event editing, secure cookie sessions and broader rate limiting. The app currently supports one exact email domain per college workspace. The Docker deployment and real inbox delivery were verified on Render; physical camera hardware still needs testing.
